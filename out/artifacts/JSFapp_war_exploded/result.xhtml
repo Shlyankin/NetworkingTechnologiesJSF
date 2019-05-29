@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Refresh" content="#{stringRepeaterBean.getMessage(3)}"/>
+    <title>Repeater</title>
+    <link rel='StyleSheet' type='text/css' href='style.css'/>
+</h:head>
+
+<h:body>
+    <h1 class="form-tittle">Repeater</h1>
+    <div id="form-back">
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <h:form>
+            <h:commandLink value="Назад" styleClass="link" action="#{stringRepeaterBean.resetData()}"/>
+        </h:form>
+    </div>
+    <div id="form-download">
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <h:form>
+            <h:commandLink styleClass="link" value="Скачать xml" action="#{stringRepeaterBean.redirectToXmlDataServlet()}"/>
+        </h:form>
+    </div>
+    <div class="decor">
+        <div class="form-left-decoration"></div>
+        <div class="form-right-decoration"></div>
+        <div class="circle"></div>
+        <div class="form-inner">
+            <h:outputLabel value="#{stringRepeaterBean.getMessage(1)}" style="color : indianred;font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 20px;"/>
+            <br/>
+            <h:form>
+                <h:commandLink value="#{stringRepeaterBean.getMessage(2)}" action="index"/>
+            </h:form>
+            <br/>
+            <h:outputLabel value="#{stringRepeaterBean.databaseInfo}" style="color : green; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 20px;"/>
+            <br/>
+            <br/>
+            <div align="center">
+                <h:outputText style="text-align: center; width: 400px; overflow-x: scroll; display:block;" value="#{stringRepeaterBean.repeatedString}"/>
+            </div>
+        </div>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Repeater</title>
+        <link rel='StyleSheet' type='text/css' href='style.css'/>
+    </h:head>
+
+    <h:body>
+        <h1 class="form-tittle">Repeater</h1>
+        <div class="decor">
+            <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="circle"></div>
+            <div class="form-inner">
+                <h3>Повторим вашу строку</h3>
+                <h:form>
+                    <h:outputText value="Ваша строка" />
+                    <br/>
+                    <h:message style="color : indianred;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 500;
+                    font-size: 20px;" for="sourceString"/>
+                    <br/>
+                    <h:inputTextarea id="sourceString" value="#{stringRepeaterBean.sourceString}" required="true" requiredMessage="Пустое поле">
+                        <f:converter for="sourceString" converterId="CustomStringConverter"/>
+                    </h:inputTextarea>
+                    <br/>
+                    <h:outputText value="Сколько раз повторить?"/>
+                    <br/>
+                    <h:message style="color : indianred;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 500;
+                    font-size: 20px;" for="repeatCount"/>
+                    <br/>
+                    <h:inputText id="repeatCount" value="#{stringRepeaterBean.repeatCount}" required="true" requiredMessage="Пустое поле">
+                        <f:converter for="repeatCount" converterId="NaturalNumberConverter"/>
+                    </h:inputText>
+                    <h:commandButton value="Поехали" action="#{stringRepeaterBean.repeatString}">
+                    </h:commandButton>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>
